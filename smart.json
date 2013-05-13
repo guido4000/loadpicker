@@ -3,7 +3,7 @@
   "description": "filepicker.io script repackaged for Meteor",
   "homepage": "https://github.com/guido4000/loadpicker",
   "author": "Guido Hoermann <guido4000@gmail.com>",
-  "version": "1.0",
+  "version": "1.0.0",
   "git": "https://github.com/guido4000/loadpicker.git",
   "packages": {}
 }
