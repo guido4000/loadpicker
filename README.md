@@ -10,23 +10,23 @@ Package to use Filepicker in Meteor, loads on demand, optional callback.
 
 2. Add package
 
-      mrt add loadpicker
+        mrt add loadpicker
  
 ## A. How to use with upload button
 
 1. Set your Filepicker key on client JS
 
-      var key = "your filepicker key";
+        var key = "your filepicker key";
 
 
 2. Call the script on demand from template.yourTemplate.created or template.yourTemplate.rendered
 
-      loadPicker(key);
+        loadPicker(key);
 
 
 3. Call Filepicker from template.yourTemplate.events with a click or submit event
 
-      filepicker.pick();
+        filepicker.pick();
 
 
 #### Sample integration
@@ -54,20 +54,20 @@ if (Meteor.isClient) {
 
 1. Set your Filepicker key on client JS
 
-      var key = "your filepicker key";
+        var key = "your filepicker key";
  
 2. Call the script on demand from template.yourTemplate.created or template.yourTemplate.rendered with callback
       
-      loadPicker(key, callback);
+        loadPicker(key, callback);
  
 3. Call Filepicker from template.yourTemplate.events and include callback function to create widget or drop pane
   
-      var cb = function () {
+        var cb = function () {
           filepicker.constructWidget(document.getElementById('constructed-widget'));
           filepicker.makeDropPane($('#exampleDropPane')[0], { });
         };
       
-      loadPicker(key, cb);
+        loadPicker(key, cb);
 
 
 #### Sample integration with widget or drop pane and callback
