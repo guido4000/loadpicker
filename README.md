@@ -6,37 +6,30 @@ Package to use Filepicker in Meteor, loads on demand, optional callback.
 
 1. Install Meteorite (if not already installed)
 
-  ```
-  npm install -g meteorite
-  ```
+        npm install -g meteorite
 
 2. Add package
 
-  ```
-  mrt add loadpicker
-  ```
-
+      mrt add loadpicker
+ 
 ## A. How to use with upload button
 
 1. Set your Filepicker key on client JS
 
-  ```
-  var key = "your filepicker key";
-  ```
+      var key = "your filepicker key";
+
 
 2. Call the script on demand from template.yourTemplate.created or template.yourTemplate.rendered
 
-  ```
-  loadPicker(key);
-  ```
+      loadPicker(key);
+
 
 3. Call Filepicker from template.yourTemplate.events with a click or submit event
 
-  ```
-  filepicker.pick();
-  ```
+      filepicker.pick();
 
-## Sample A: integration
+
+#### Sample integration
 
 ```
 if (Meteor.isClient) {
@@ -57,31 +50,27 @@ if (Meteor.isClient) {
 }
 ```
 
-## B. How to use with drop widget
+## B. How to use with drop widget or drop area
 
 1. Set your Filepicker key on client JS
 
-  ```
-  var key = "your filepicker key";
-  ```
-
+      var key = "your filepicker key";
+ 
 2. Call the script on demand from template.yourTemplate.created or template.yourTemplate.rendered with callback
-
-  ```
-  loadPicker(key, callback);
-  ```
-
-3. Call Filepicker from template.yourTemplate.events and include callback function to create widget
-
-  ```
-  var cb = function () {
-        filepicker.constructWidget(document.getElementById('constructed-widget'));
-      };
-  loadPicker(key, cb);
-  ```
+      
+      loadPicker(key, callback);
+ 
+3. Call Filepicker from template.yourTemplate.events and include callback function to create widget or drop pane
+  
+      var cb = function () {
+          filepicker.constructWidget(document.getElementById('constructed-widget'));
+          filepicker.makeDropPane($('#exampleDropPane')[0], { });
+        };
+      
+      loadPicker(key, cb);
 
 
-## Sample B: integration with widget and callback
+#### Sample integration with widget or drop pane and callback
 
 ```
 if (Meteor.isClient) {
@@ -92,20 +81,29 @@ Template.hello.rendered = function () {
     if (!Session.get("widgetSet")) {  
       var cb = function () {
         filepicker.constructWidget(document.getElementById('constructed-widget'));
+        filepicker.makeDropPane($('#exampleDropPane')[0], { });
       };
       loadPicker(key, cb);
     }
   };
 ```
 
-HTML for sample 2 (include the special type tag!):
+HTML (include the type tag for the widget!):
 
-&lt;div id="constructed-widget" value="empty" type="filepicker-dragdrop" style="display: none;">
-&lt;/div>
-
-
-
-
-
-
-
+    <h1>Widget</h1>
+      <div id="constructed-widget" value="empty" type="filepicker-dragdrop" style="display: none;">
+      </div>
+    <h1>Drop Pane</h1>
+      <div id="exampleDropPane">Drop Here!</div>
+      <div><pre id="localDropResult"></pre></div>
+    
+CSS for drop pane
+  
+  #exampleDropPane {
+      text-align: center;
+      padding: 20px;
+      background-color: #F6F6F6;
+      border: 1px dashed #666;
+      border-radius: 6px;
+      margin-bottom: 20px;
+  }
