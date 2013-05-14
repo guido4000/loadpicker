@@ -99,11 +99,11 @@ HTML (include the type tag for the widget!):
     
 CSS for drop pane
   
-  #exampleDropPane {
+    #exampleDropPane {
       text-align: center;
       padding: 20px;
       background-color: #F6F6F6;
       border: 1px dashed #666;
       border-radius: 6px;
       margin-bottom: 20px;
-  }
+    }
