@@ -3,7 +3,6 @@ Package.describe({
 });
 
 Package.on_use(function (api) {
-  api.add_files([
-    'loadpicker.js'
-  ],'client');
+  api.add_files(['loadpicker.js'],'client');
+  api.export('loadPicker', 'client');
 });
