@@ -75,7 +75,7 @@ if (Meteor.isClient) {
 ```
 if (Meteor.isClient) {
   Session.set("widgetSet", false);
-  var key = "AX8PSEzsES7qCDemGFELoz";
+  var key = "insert key here";
 
 Template.hello.rendered = function () {
     if (!Session.get("widgetSet")) {  
